@@ -25,6 +25,21 @@ class ValidaFormulario {
             }    
         })
 
+        const cpf = this.formulario.querySelector('.cpf');
+        cpf.addEventListener('keypress', el => {
+            this.mascaraCPF(el)            
+        })
+    }
+
+    mascaraCPF(evento) {
+        const cpf = evento.target;
+
+        if (isNaN(parseFloat(evento.key))) evento.preventDefault();
+        if (cpf.value.length === 3) return cpf.value += '.';
+        if (cpf.value.length === 7) return cpf.value += '.';
+        if (cpf.value.length === 11) return cpf.value += '-';
+        if (cpf.value.length >= 14) evento.preventDefault();
+
     }
 
     mostrarSenha(classe) {
