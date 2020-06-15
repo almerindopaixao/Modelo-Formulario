@@ -6,6 +6,9 @@ class ValidaFormulario {
     }
 
     eventos() {
+        /**
+         * Função que organiza os evento do formulário
+         */
         this.formulario.addEventListener('submit', event => {
             this.handleSubmit(event);
         })
@@ -32,6 +35,10 @@ class ValidaFormulario {
     }
 
     mascaraCPF(evento) {
+        /**
+         * Função que serve como máscara do cpf
+         * @param {Object} evento
+         */
         const cpf = evento.target;
 
         if (isNaN(parseFloat(evento.key))) evento.preventDefault();
@@ -43,6 +50,10 @@ class ValidaFormulario {
     }
 
     mostrarSenha(classe) {
+        /**
+         * Função que mostra a senha quando a checkbox é checado
+         * @param {String} classe
+         */
         if (classe === 'check1') {
             const senha = this.formulario.querySelector('.senha');
             senha.setAttribute('type', 'text')
@@ -53,6 +64,10 @@ class ValidaFormulario {
     }
 
     ocultarSenha(classe) {
+        /**
+         * Função que oculta a senha quando a checkbox é checado
+         * @param {String} classe
+         */
         if (classe === 'check1') {
             const senha = this.formulario.querySelector('.senha')
             senha.setAttribute('type', 'password')
@@ -79,6 +94,10 @@ class ValidaFormulario {
     }
 
     senhaSaoValidas() {
+        /**
+         * Função que verifica se as senhas do usuário são válidas
+         * @returns {Boolean}
+         */
         let valid = true;
 
         const senha = this.formulario.querySelector('.senha');
